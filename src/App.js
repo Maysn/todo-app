@@ -19,9 +19,14 @@ class App extends React.Component {
     });
   }
   handleSubmit() {
-    const newTodo = { text: this.state.input, id: this.state.toDoList.length, done: false };
+    if (!this.state.input) {
+      return;
+    }
+    const textArray = this.state.input.split(',');
+
+    const newTodo = textArray.map((text, index) => ({ text, id: this.state.toDoList.length + index, done: false }));
     this.setState({
-      toDoList: [...this.state.toDoList, newTodo],
+      toDoList: [...this.state.toDoList, ...newTodo],
     });
   }
 
@@ -48,7 +53,7 @@ class App extends React.Component {
           <button onClick={this.handleSubmit}>Magic button!</button>
         </div>
         <div className={'grey'}>
-          <h2>Good luck getting that done!</h2>
+          {this.state.toDoList.length > 0 && <h2>Good luck getting that done!</h2>}
           <div className="listCont">
             <div className="theList">
               {this.state.toDoList.map((item) => (
