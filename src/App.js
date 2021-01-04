@@ -1,52 +1,64 @@
-import React from "react";
+import React from 'react';
 import './App.css';
-import Donebutton from './Donebutton';
+import ListItem from './list';
 // hi intruder
-class App extends React.Component{
-  constructor(props){
+class App extends React.Component {
+  constructor(props) {
     super(props);
-    this.state={
-      input:'',
-      toDoList:[]
-    }
-    this.handleChange=this.handleChange.bind(this);
-    this.handleSubmit=this.handleSubmit.bind(this);
+    this.state = {
+      input: '',
+      toDoList: [],
+    };
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.setDone = this.setDone.bind(this);
   }
-  handleChange(e){
+  handleChange(e) {
     this.setState({
-      input:e.target.value
-    })
+      input: e.target.value,
+    });
   }
-  handleSubmit(){
-     const itemsArr= this.state.input.split(',');
-     this.setState({
-       toDoList: itemsArr
-     }) 
+  handleSubmit() {
+    const newTodo = { text: this.state.input, id: this.state.toDoList.length, done: false };
+    this.setState({
+      toDoList: [...this.state.toDoList, newTodo],
+    });
   }
-  render(){
 
-    return(
+  setDone(id) {
+    const newList = this.state.toDoList.map((item) => {
+      if (item.id === id) {
+        return { ...item, done: true };
+      }
+      return item;
+    });
+    this.setState({
+      toDoList: newList,
+    });
+  }
+  render() {
+    return (
       <div>
-        <div className={"bluepart"}>
+        <div className={'bluepart'}>
           <h1>To-Do App!</h1>
-          <label>What needs to be done?</label><br/>
-        <textarea
-        value={this.state.input}
-        onChange={this.handleChange}
-        placeholder="Always plan ahea"></textarea>
-        <br/>
-        <button onClick={this.handleSubmit}>Magic button!</button>
+          <label>What needs to be done?</label>
+          <br />
+          <textarea value={this.state.input} onChange={this.handleChange} placeholder="Always plan ahea"></textarea>
+          <br />
+          <button onClick={this.handleSubmit}>Magic button!</button>
         </div>
-        <div className={"grey"}>
+        <div className={'grey'}>
           <h2>Good luck getting that done!</h2>
           <div className="listCont">
-        <div className="theList">
-          <Donebutton todolist={this.state.toDoList}/>
-</div>
+            <div className="theList">
+              {this.state.toDoList.map((item) => (
+                <ListItem key={item.id} item={item} setDone={this.setDone} />
+              ))}
+            </div>
+          </div>
         </div>
-    </div>
       </div>
-    )
+    );
   }
 }
 
