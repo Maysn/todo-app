@@ -1,20 +1,26 @@
 import React from 'react';
-class Donebutton extends React.Component{
-    constructor(props){
-        super(props);
-        this.doneDeal=this.doneDeal.bind(this);
+// class Donebutton extends React.Component{
+//     render() {
+//         return(
+//             <label>
+//                 {item}
+//                 <button>Done</button>
+//                 <button>Undo</button>
+//             </label>)
+//         )
+//     }
+// }
 
-    }
-
-    doneDeal(){
-        
-    }
-
-    render() {
+// export default Donebutton;
+export default class ListItem extends React.Component{
+    render(){
+        const {item, todoDone, todoDelete} = this.props;
         return(
-            this.props.todolist.map(item => <label>{item}<button type="submit" onClick={this.doneDeal}>Done</button><button type="submit">Undo</button></label>)
+            <label>
+                {item.done? <s>{item.theTodo}</s> : item.theTodo}
+                {item.theTodo && <button onClick={() => todoDone(item.id)} >Done</button>}
+                {item.theTodo && <button onClick={() => todoDelete(item.id)}>Delete</button>}
+            </label>
         )
     }
 }
-
-export default Donebutton;
