@@ -1,95 +1,111 @@
-.bluepart{
-  color: white;
-  background-color:#1789ED;
-  display:flex;
-  height: 330px;
+.parent{
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  height: 100%vh;
+  width: 100%vw;
+  top: 0px;
+  bottom: 0px;
+  right: 0px;
+  left: 0px;
+  display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  background-color: #000000;
+background-image: url("https://www.transparenttextures.com/patterns/retina-wood.png");
+/* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
 }
-
-h1{
+.bluePart{
+  color: white;
+  display:flex;
+  height: 280px;
+  flex-direction: column;
+}
+.title{
+  height:190px;
+}
+.title h1{
+  text-align: center;
   text-decoration: underline;
   font-style: oblique;
-  font-size: 70px;
+  font-size: 75px;
   align-self: center;
   margin-right: 40px;
   margin-top: 20px;
   padding-bottom: 0px;
   font-family:monospace;
 }
-
-label{
-  margin-left: 20px;
-  font-size: 30px;
-  font-weight: 600;
+.dataEntry{
+  display: flex;
+  justify-content: center;
 }
-
-textarea{
-  width: 90%;
-  height: 40px;
-  margin-left: 20px;
-  margin-top: -10px;
+.dataEntry input{
+  background-color: rgb(228, 228, 228);
+  width: 30%;
+  height: 45px;
+  border-radius: 13px;
+  outline: none;
+  font-size: 27px;
+  padding-left: 5px;
+  font-family: monospace;
+  font-weight: bolder;
 }
-button{
+.dataEntry button{
   font-family: sans-serif;
   font-weight: bold;
   background-color: transparent;
-  height: 35px;
-  margin-left: 30px;
+  height: 45px;
+  margin-left: 10px;
   align-self: center;
-  border-radius: 10px;
-  border-style:solid;
+  border: none;
+  border-radius: 13px;
+  border-style:inset;
   border-width: 2px;
-  border-color: white;
+  border-color: black;
+  background-color: rgb(78, 78, 78);
   color: inherit;
   padding: 10px 10px 30px 15px;
   font-size: 18px;
- 
+  outline: none;
 }
-
 button:hover{
   animation-name:change;
   animation-duration: 1s;
   animation-fill-mode: forwards;
 }
-
 @keyframes change {
   100%{
-    color: black;
-    transform: scale(1.2);
+    
+    transform: scale(1.1);
   }
 }
-
 .grey{
-  background: url("https://cdn-media-1.freecodecamp.org/imgr/MJAkxbh.png");
-  width: 100%;
-  height: 700px;
-  margin-top: -30px;
+  margin-top: 50px;
+  align-self: center;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  width: 1300px;
+  min-height: 800px;
 }
-
-h2 {
-  padding-top: 60px;
+.grey h2 {
+  margin-top: -2px;
+  padding: 10px 10px 0px 10px;
+  height: 70px;
+  border-radius: 3px;
+  background-color: transparent;
+  color: white;
+  text-decoration-line: underline;
+  padding-top: 10px;
   text-align: center;
   font-family:cursive ;
   font-size: 30px;
   font-style: italic;
 }
-
-.listCont{
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-}
-
 .theList{
+  background-image: url(/src/images/list.jpg);
   display: flex;
   flex-direction: column;
-  align-items: center;
-  font-family: 'Times New Roman', Times, serif;
-  font-size: 20px;
-  font-weight: 600;
-  /* background-color: black; */
-  width: 500px;
-  height: auto;
-
+  background-color: yellowgreen;
+  width: 60%;
+  min-height: inherit;
 }

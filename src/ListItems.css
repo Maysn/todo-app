@@ -1,0 +1,66 @@
+/* #listContainer input{
+    margin-top: 30px;
+    margin-left: 150px;
+    /* background-color: transparent; */
+    /* border: none;
+    text-align: start;
+    font-size: 20px;
+    resize: horizontal;
+    width: 200px;
+    height: 25px;
+    padding-left: 10px;
+    font-family: monospace;
+    font-weight: bold;
+    font-size: 30px;
+  }
+  #listContainer input:focus{
+    outline: transparent;
+  }
+#dltBtn{
+    height: 25px;
+    margin-top: 0px;
+}
+ */
+ #listContainer{
+    position: relative;
+     display: flex;
+     justify-content: flex-start;
+ }
+ #listContainer input{
+    text-align: start;
+    margin-top: 10px;
+    margin-left: 7rem;
+    margin-bottom: 8px;
+    background-color: transparent;
+    width: 40%;
+    height: 40px;
+    border:none;
+    outline: none;
+    font-size: 40px;
+    padding-left: 5px;
+    font-family: monospace;
+    font-weight: bolder;
+    color: whitesmoke;
+  }  
+  #listContainer button{
+    position: relative;
+    text-align: center;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: bold;
+    background-color: transparent;
+    height: 20px;
+    margin-left: 50px;
+    align-self: center;
+    border: none;
+    padding: 10px 10px 30px 15px;
+    font-size: 25px;
+    outline: none;
+  }
+  #dltBtn{
+    left: 40px;
+    color: white;
+  }
+  #dnBtn{
+    left: 30px;
+    color: white;
+  }
