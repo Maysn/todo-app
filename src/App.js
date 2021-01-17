@@ -64,14 +64,18 @@ class App extends React.Component {
       toDoList: editedTodo,
     });
   }
-  handleEnterPress(event){
-    if (event.key === 'Enter') {
+
+  handleEnterPress(event) {
+    if (event.key === "Enter") {
       this.handleSubmit();
+    }
+    if (event.key === "Escape") {
+      this.clearInput();
     }
   }
   render() {
     return (
-      <div className={'parent'}>
+      <div className={"parent"}>
         <div className={"bluePart"}>
           <div className={"title"}>
             <h1>To-Do App!</h1>
@@ -88,19 +92,20 @@ class App extends React.Component {
           </div>
         </div>
         <div className={"grey"}>
-          {this.state.toDoList.length > 0 && 
-          <div className={"theList"}>
-            <h2>Told you not to..Now get to work!</h2>
-            {this.state.toDoList.map((item) => (
-              <ListItem
-                key={item.id}
-                item={item}
-                todoDone={this.todoDone}
-                todoDelete={this.todoDelete}
-                todoEdit={this.todoEdit}
-              />
-            ))}
-          </div>}
+          {this.state.toDoList.length > 0 && (
+            <div className={"theList"}>
+              <h2>Told you not to..Now get to work!</h2>
+              {this.state.toDoList.map((item) => (
+                <ListItem
+                  key={item.id}
+                  item={item}
+                  todoDone={this.todoDone}
+                  todoDelete={this.todoDelete}
+                  todoEdit={this.todoEdit}
+                />
+              ))}
+            </div>
+          )}
         </div>
       </div>
     );
