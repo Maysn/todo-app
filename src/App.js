@@ -15,6 +15,7 @@ class App extends React.Component {
     this.todoDone = this.todoDone.bind(this);
     this.todoDelete = this.todoDelete.bind(this);
     this.todoEdit = this.todoEdit.bind(this);
+    this.handleEnterPress = this.handleEnterPress.bind(this);
   }
   handleChange(e) {
     this.setState({
@@ -63,6 +64,11 @@ class App extends React.Component {
       toDoList: editedTodo,
     });
   }
+  handleEnterPress(event){
+    if (event.key === 'Enter') {
+      this.handleSubmit();
+    }
+  }
   render() {
     return (
       <div className={'parent'}>
@@ -72,6 +78,7 @@ class App extends React.Component {
           </div>
           <div className={"dataEntry"}>
             <input
+              onKeyDown={this.handleEnterPress}
               value={this.state.input}
               onChange={this.handleChange}
               placeholder="Always plan ahea"

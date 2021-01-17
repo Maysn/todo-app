@@ -1,38 +1,26 @@
 .parent{
-  position: fixed;
-  height: 100%;
-  width: 100%;
-  height: 100%vh;
-  width: 100%vw;
-  top: 0px;
-  bottom: 0px;
-  right: 0px;
-  left: 0px;
-  display: flex;
-  flex-direction: column;
-  background-color: #000000;
-background-image: url("https://www.transparenttextures.com/patterns/retina-wood.png");
-/* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+  overflow-y: auto;
+  height: 100vh;
+  width: 100vw;
+  font-size: 16px;
+  font-family: monospace;
+  background-color: #B1B6A6;
 }
 .bluePart{
+  position: sticky;
+  top: 0px;
+  z-index: 3;
   color: white;
-  display:flex;
-  height: 280px;
+  background-color: #6E7DAB;
+  display: flex;
   flex-direction: column;
-}
-.title{
-  height:190px;
+  padding-bottom: 1rem;
 }
 .title h1{
   text-align: center;
   text-decoration: underline;
   font-style: oblique;
-  font-size: 75px;
-  align-self: center;
-  margin-right: 40px;
-  margin-top: 20px;
-  padding-bottom: 0px;
-  font-family:monospace;
+  font-size: 4.5rem;
 }
 .dataEntry{
   display: flex;
@@ -46,7 +34,6 @@ background-image: url("https://www.transparenttextures.com/patterns/retina-wood.
   outline: none;
   font-size: 27px;
   padding-left: 5px;
-  font-family: monospace;
   font-weight: bolder;
 }
 .dataEntry button{
@@ -80,32 +67,55 @@ button:hover{
 }
 .grey{
   margin-top: 50px;
-  align-self: center;
   display:flex;
-  flex-direction: column;
-  align-items: center;
-  width: 1300px;
-  min-height: 800px;
+  justify-content: center;
 }
 .grey h2 {
-  margin-top: -2px;
-  padding: 10px 10px 0px 10px;
-  height: 70px;
   border-radius: 3px;
   background-color: transparent;
-  color: white;
-  text-decoration-line: underline;
-  padding-top: 10px;
+  font-size: 1.8rem;
   text-align: center;
-  font-family:cursive ;
-  font-size: 30px;
-  font-style: italic;
 }
+
 .theList{
-  background-image: url(/src/images/list.jpg);
   display: flex;
   flex-direction: column;
-  background-color: yellowgreen;
-  width: 60%;
-  min-height: inherit;
+  min-height: 300px;
+  padding: 0 1rem;
+  border-radius: 10px;
+  background-color: transparent;
+  color: #000000;
+  border: #000000;
+  border-style: solid;
+  border-radius: 1rem;
+  animation-name: list;
+  animation-duration: 2s;
+  animation-timing-function: linear;
+}
+@keyframes list {
+  0%{
+    top: 0;
+    opacity: 0;
+    transform: scale(0);
+    transform: rotate(25deg);
+  }
+  25%{
+    opacity: 0.5;
+    transform: scale(2);
+    transform: rotate(-40deg);
+  }
+  50%{
+    opacity: 0.5;
+    transform: scale(2);
+    transform: rotate(15deg);
+  }
+  75%{
+    opacity: 0.5;
+    transform: scale(2);
+    transform: rotate(-20deg);
+  }
+  100%{
+    opacity: 1;
+    transform: scale(1);
+  }
 }
