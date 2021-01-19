@@ -4,119 +4,161 @@
   width: 100vw;
   font-size: 16px;
   font-family: monospace;
-  background-color: #B1B6A6;
+  background-color: #73648A;
 }
 .bluePart{
-  position: sticky;
-  top: 0px;
-  z-index: 3;
-  color: white;
-  background-color: #6E7DAB;
+  background-color: #73648A;
   display: flex;
   flex-direction: column;
   padding-bottom: 1rem;
+  box-shadow: 0px 1px 7px 3px #453750;
+}
+.title{
+  display: flex;
+  justify-content: center;
 }
 .title h1{
+  color: #CACFD6;
   text-align: center;
-  text-decoration: underline;
-  font-style: oblique;
-  font-size: 4.5rem;
+  font-size: 2.5rem;
+  box-shadow: 2px 2px 10px #2c2333;
+  position: relative;
+}
+.title h1:hover{
+  cursor: pointer;
+  color: rgba(0, 0, 0, 0);
+}
+.title h1:hover::before{
+  content: "DANGER!";
+  box-shadow: 2px 2px 10px #2c2333;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  color: black;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -25px);
 }
 .dataEntry{
   display: flex;
   justify-content: center;
+  height: 25px;
 }
 .dataEntry input{
-  background-color: rgb(228, 228, 228);
-  width: 30%;
-  height: 45px;
-  border-radius: 13px;
-  outline: none;
-  font-size: 27px;
+  background-color: #CACFD6;
+  border-radius: .3rem;
+  border: 1px solid #453750;
   padding-left: 5px;
-  font-weight: bolder;
+  outline: none;
+  box-shadow: 3px 2px 2px #453750;
 }
 .dataEntry button{
-  font-family: sans-serif;
-  font-weight: bold;
-  background-color: transparent;
-  height: 45px;
-  margin-left: 10px;
-  align-self: center;
-  border: none;
-  border-radius: 13px;
-  border-style:inset;
-  border-width: 2px;
-  border-color: black;
-  background-color: rgb(78, 78, 78);
-  color: inherit;
-  padding: 10px 10px 30px 15px;
-  font-size: 18px;
+  color: #CACFD6;
+  border-radius: .3rem;
+  border: 1px solid black;
+  background-color: #463F1A;
+  margin: 0 5px;
   outline: none;
+  box-shadow: 3px 2px 2px #453750;
 }
-button:hover{
-  animation-name:change;
+.dataEntry button:hover{
+  animation-name: change;
   animation-duration: 1s;
   animation-fill-mode: forwards;
 }
-@keyframes change {
+@keyframes change{
   100%{
-    
     transform: scale(1.1);
   }
 }
+#dangBtn{
+  position: relative;
+  color: black;
+  transform: scale(0);
+}
+#dangBtn:hover{
+  background-color: rgb(175, 3, 3);
+}
+#dangBtn::after{
+  position: absolute;
+  content: 'With great power, comes great responsibility.';
+  font-size: 12px;
+  white-space: nowrap;
+  background-color: rgb(54, 54, 54);
+  color: whitesmoke;
+  padding: 1px 1px;
+  display: block;
+  bottom: 0%;
+  left: -100px;
+  margin-bottom: 3px;
+  border-radius: 3px;
+  transform: scale(0);
+  transition: transform ease-out 300ms, bottom ease-out 300ms, left ease-out 300ms;
+}
+#dangBtn:hover::after{
+  transform: scale(1);
+  bottom: 100%;
+  left: 0%;
+}
+#adding:hover{
+  background-color: rgb(0, 105, 0);
+}
 .grey{
-  margin-top: 50px;
+  margin-top: 2rem;
   display:flex;
   justify-content: center;
 }
+.Tip{
+  min-height: 100px;
+  display: flex;
+  align-items: flex-end;
+  position: relative;
+  cursor: pointer;
+}
+.Tip span::after{
+  content: 'Click the header to unlock full potential!';
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  white-space: nowrap;
+  transform: scale(0);
+  transition: transform ease-out 300ms, bottom ease-out 300ms;
+}
+.Tip span:hover::after{
+  transform: scale(1);
+  bottom: 70%;
+  left: ;
+}
 .grey h2 {
-  border-radius: 3px;
-  background-color: transparent;
-  font-size: 1.8rem;
   text-align: center;
+  font-size: 1.2rem;
 }
 
 .theList{
+  position: relative;
   display: flex;
   flex-direction: column;
-  min-height: 300px;
-  padding: 0 1rem;
-  border-radius: 10px;
-  background-color: transparent;
-  color: #000000;
-  border: #000000;
-  border-style: solid;
-  border-radius: 1rem;
-  animation-name: list;
-  animation-duration: 2s;
-  animation-timing-function: linear;
-  margin-bottom: 3rem;
+  justify-content: space-evenly;
+  min-width: 200px;
+  padding-bottom: 10px;
+  border-radius: 3px;
+  background-color: #72705B;
+  border:2px solid #453750;
+  box-shadow: 9px 5px 11px #453750;
+  animation-name: behold;
+  animation-duration: .5s;
+  transition: ease-in-out;
 }
-@keyframes list {
-  0%{
-    top: 0;
+@keyframes behold {
+  0% {
+    top: -50px;
+    visibility: hidden;
     opacity: 0;
-    transform: scale(0);
-    transform: rotate(25deg);
-  }
-  25%{
-    opacity: 0.5;
-    transform: scale(2);
-    transform: rotate(-40deg);
-  }
-  50%{
-    opacity: 0.5;
-    transform: scale(2);
-    transform: rotate(15deg);
-  }
-  75%{
-    opacity: 0.5;
-    transform: scale(2);
-    transform: rotate(-20deg);
   }
   100%{
+    top: 0px;
+    visibility: visible;
     opacity: 1;
-    transform: scale(1);
   }
 }

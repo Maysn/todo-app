@@ -1,23 +1,58 @@
  #listContainer{
      display: flex;
-     margin: 10px 0;
+     justify-content: space-evenly;
+     margin: .5rem 0rem;
+     animation-name: todo;
+     animation-duration: 1s;
+ }
+ @keyframes todo{
+   0%{
+     top: -50px;
+     visibility: hidden;
+     opacity: 0;
+   }
+   50%{
+     top: 0;
+     visibility: visible;
+     opacity: .5;
+     transform: scale(1.2);
+   }
  }
  #listContainer input{
+    font-weight: bold;
     text-align: center;
-    background-color: transparent;
-    border:none;
+    color: #CACFD6;
+    background-color: #463F1A;
+    border: 1px solid #72705B;
+    border-radius: 5px;
     outline: none;
-    font-size: 1.7rem;
+    max-width: 110px;
+    box-shadow: 2px 2px 3px  black;
   }  
   #listContainer button{
-    text-align: center;
-    background-color: transparent;
-    border: #000000;
-    border-style: solid;
-    border-radius: 0.5rem;
-    font-size: 1.2rem;
+    color: black;
+    font-weight: bold;
+    background-color: #463F1A;
+    border: 1px solid rgb(36, 36, 36);
+    border-radius: 0.2rem;
     outline: none;
+    box-shadow: 1px 1px 2px 1px;
   }
-  #dltBtn{
-    margin: 0 1.5rem;
+  #dnBtn:hover{
+    color: rgb(1, 134, 1);
+    box-shadow: 1px 1px 2px 1px black;
   }
+  #dltBtn:hover{
+    color:rgb(184, 0, 0);
+    box-shadow: 1px 1px 2px 1px black;
+  }
+  #listContainer button:hover{
+    animation-name: changeTwo;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+  }
+  @keyframes changeTwo{
+    100%{
+      transform: scale(1.1);
+      }
+    }

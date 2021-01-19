@@ -1,6 +1,7 @@
 import React from "react";
 import "./App.css";
 import ListItem from "./ListItems";
+import { FaBomb, FaPlus, FaEnvelope } from "react-icons/fa";
 
 class App extends React.Component {
   constructor(props) {
@@ -70,7 +71,7 @@ class App extends React.Component {
       this.handleSubmit();
     }
     if (event.key === "Escape") {
-      this.clearInput();
+      this.setState({input:''});
     }
   }
   render() {
@@ -78,7 +79,7 @@ class App extends React.Component {
       <div className={"parent"}>
         <div className={"bluePart"}>
           <div className={"title"}>
-            <h1>To-Do App!</h1>
+            <h1 onClick={() => {document.getElementById('dangBtn').style.transform='scale(1)'}} >To-Do App!</h1>
           </div>
           <div className={"dataEntry"}>
             <input
@@ -87,11 +88,12 @@ class App extends React.Component {
               onChange={this.handleChange}
               placeholder="Always plan ahea"
             />
-            <button onClick={this.handleSubmit}>Don't hit me!</button>
-            <button onClick={this.handleClear}>W.M.D</button>
+            <button id='adding' onClick={this.handleSubmit}><FaPlus/></button>
+            <button id='dangBtn' onClick={this.handleClear}><FaBomb/></button>
           </div>
         </div>
         <div className={"grey"}>
+          { this.state.toDoList.length==0 && <div className='Tip'><span><FaEnvelope style={{fontSize:'50px', color:'#CACFD6'}} /></span></div>}
           {this.state.toDoList.length > 0 && (
             <div className={"theList"}>
               <h2>Told you not to..Now get to work!</h2>

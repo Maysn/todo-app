@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./ListItems.css";
+import { FaCheck, FaUndoAlt } from "react-icons/fa";
 
 // this.state = {
 //     value: textValue,
@@ -26,7 +27,7 @@ const ListItem = ({ item, todoDone, todoDelete, todoEdit }) => {
         <input style={{ textDecoration: "line-through" }} value={value}></input>
       ) : (
         <input
-          style={{ background: textValue !== value ? "yellow" : "" }}
+          style={{ background: textValue !== value ? "black" : "" }}
           onBlur={onBlur}
           onChange={(e) => {
             setValue(e.target.value);
@@ -41,12 +42,12 @@ const ListItem = ({ item, todoDone, todoDelete, todoEdit }) => {
       )}
       {item.theTodo && !item.done && (
         <button id="dnBtn" onClick={() => todoDone(item.id)}>
-          Done
+          <FaCheck/>
         </button>
       )}
       {item.theTodo && item.done && (
-        <button id="dnBtn" onClick={() => todoDone(item.id)}>
-          Undo
+        <button style={{color:"yellow", boxShadow:"1px 1px 2px 1px black"}} id="dnBtn" onClick={() => todoDone(item.id)}>
+          <FaUndoAlt/>
         </button>
       )}
       {item.theTodo && (
