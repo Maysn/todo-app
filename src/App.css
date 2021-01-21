@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Michroma&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap');
 .parent{
   overflow-y: auto;
   height: 100vh;
@@ -7,7 +9,7 @@
   background-color: #73648A;
 }
 .bluePart{
-  background-color: #73648A;
+  background-color: #705d8d;
   display: flex;
   flex-direction: column;
   padding-bottom: 1rem;
@@ -21,20 +23,19 @@
   color: #CACFD6;
   text-align: center;
   font-size: 2.5rem;
-  box-shadow: 2px 2px 10px #2c2333;
+  filter: drop-shadow(3px 3px 2px rgb(34, 33, 33));
   position: relative;
-}
+  font-family: 'Michroma', sans-serif;}
 .title h1:hover{
   cursor: pointer;
   color: rgba(0, 0, 0, 0);
 }
 .title h1:hover::before{
   content: "DANGER!";
-  box-shadow: 2px 2px 10px #2c2333;
   height: 100%;
   width: 100%;
   position: absolute;
-  color: black;
+  color: #CACFD6;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -25px);
@@ -75,6 +76,7 @@
   position: relative;
   color: black;
   transform: scale(0);
+  transition: transform ease-in-out 1s;
 }
 #dangBtn:hover{
   background-color: rgb(175, 3, 3);
@@ -82,7 +84,7 @@
 #dangBtn::after{
   position: absolute;
   content: 'With great power, comes great responsibility.';
-  font-size: 12px;
+  font-size: .7rem;
   white-space: nowrap;
   background-color: rgb(54, 54, 54);
   color: whitesmoke;
@@ -98,7 +100,14 @@
 #dangBtn:hover::after{
   transform: scale(1);
   bottom: 100%;
-  left: 0%;
+  left: -400%;
+}
+@media (max-width:500px){
+  #dangBtn:hover::after{
+    transform: scale(1);
+    bottom: 100%;
+    left: -650%;
+  }
 }
 #adding:hover{
   background-color: rgb(0, 105, 0);
@@ -106,29 +115,38 @@
 .grey{
   margin-top: 2rem;
   display:flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
 }
 .Tip{
-  min-height: 100px;
+  min-height: 200px;
   display: flex;
   align-items: flex-end;
   position: relative;
   cursor: pointer;
 }
 .Tip span::after{
-  content: 'Click the header to unlock full potential!';
+  font-family: 'Architects Daughter', cursive;
+  font-weight: bold;
+  content: 'Click the header to unlock full potential !';
   display: block;
   position: absolute;
   bottom: 0;
-  left: 0;
+  left: -230%;
+  background-color: #CACFD6;
+  height: 1.6rem;
+  padding: 3px 5px;
+  font-size: .9rem;
+  border: 3px solid;
+  border-radius: 10px;
   white-space: nowrap;
   transform: scale(0);
-  transition: transform ease-out 300ms, bottom ease-out 300ms;
+  transition: transform ease-out 300ms, bottom ease-out 250ms;
 }
 .Tip span:hover::after{
   transform: scale(1);
-  bottom: 70%;
-  left: ;
+  bottom: 40%;
 }
 .grey h2 {
   text-align: center;
@@ -140,7 +158,8 @@
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  min-width: 200px;
+  min-width: 270px;
+  padding-top: 10px;
   padding-bottom: 10px;
   border-radius: 3px;
   background-color: #72705B;
@@ -149,6 +168,21 @@
   animation-name: behold;
   animation-duration: .5s;
   transition: ease-in-out;
+}
+@media (min-width: 700px){
+  .title h1{
+    font-size: 2.5rem;
+  }
+  .dataEntry input {
+    width: 300px;
+  }
+  #dangBtn::after{
+    font-size: .8rem;
+  }
+  
+  .theList{
+    min-width: 500px;
+  }
 }
 @keyframes behold {
   0% {

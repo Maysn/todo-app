@@ -79,7 +79,7 @@ class App extends React.Component {
       <div className={"parent"}>
         <div className={"bluePart"}>
           <div className={"title"}>
-            <h1 onClick={() => {document.getElementById('dangBtn').style.transform='scale(1)'}} >To-Do App!</h1>
+            <h1 onClick={() => {document.getElementById('dangBtn').style.transform='scale(1)'}} >Todo App!</h1>
           </div>
           <div className={"dataEntry"}>
             <input
@@ -93,10 +93,9 @@ class App extends React.Component {
           </div>
         </div>
         <div className={"grey"}>
-          { this.state.toDoList.length===0 && <div className='Tip'><span><FaEnvelope style={{fontSize:'50px', color:'#CACFD6'}} /></span></div>}
+          { (this.state.toDoList.length===0) && <div className='Tip'><span><FaEnvelope style={{fontSize:'50px', color:'#CACFD6'}} /></span></div>}
           {this.state.toDoList.length > 0 && (
             <div className={"theList"}>
-              <h2>Told you not to..Now get to work!</h2>
               {this.state.toDoList.map((item) => (
                 <ListItem
                   key={item.id}

@@ -24,9 +24,10 @@ const ListItem = ({ item, todoDone, todoDelete, todoEdit }) => {
   return (
     <div id="listContainer">
       {item.done ? (
-        <input style={{ textDecoration: "line-through" }} value={value}></input>
+        <label style={{ textDecoration: "line-through", textDecorationColor:"black" }}>{value}</label>
       ) : (
-        <input
+        <label
+          contentEditable
           style={{ background: textValue !== value ? "black" : "" }}
           onBlur={onBlur}
           onChange={(e) => {
@@ -37,8 +38,7 @@ const ListItem = ({ item, todoDone, todoDelete, todoEdit }) => {
               todoEdit(value, item.id);
             }
           }}
-          value={value}
-        ></input>
+        >{value}</label>
       )}
       {item.theTodo && !item.done && (
         <button id="dnBtn" onClick={() => todoDone(item.id)}>
