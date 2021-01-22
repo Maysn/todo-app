@@ -159,8 +159,8 @@
   flex-direction: column;
   justify-content: space-evenly;
   min-width: 270px;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding: 10px 0;
+  margin-bottom: 3rem;
   border-radius: 3px;
   background-color: #72705B;
   border:2px solid #453750;

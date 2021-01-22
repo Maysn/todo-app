@@ -93,7 +93,7 @@ class App extends React.Component {
           </div>
         </div>
         <div className={"grey"}>
-          { (this.state.toDoList.length===0) && <div className='Tip'><span><FaEnvelope style={{fontSize:'50px', color:'#CACFD6'}} /></span></div>}
+          { this.state.toDoList.length===0 && <div className='Tip'><span><FaEnvelope style={{fontSize:'50px', color:'#CACFD6'}} /></span></div>}
           {this.state.toDoList.length > 0 && (
             <div className={"theList"}>
               {this.state.toDoList.map((item) => (

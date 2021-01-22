@@ -24,7 +24,7 @@ const ListItem = ({ item, todoDone, todoDelete, todoEdit }) => {
   return (
     <div id="listContainer">
       {item.done ? (
-        <label style={{ textDecoration: "line-through", textDecorationColor:"black" }}>{value}</label>
+        <label style={{ textDecoration: "line-through", textDecorationThickness:'4px' }}>{value}</label>
       ) : (
         <label
           contentEditable

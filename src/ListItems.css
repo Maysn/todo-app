@@ -11,6 +11,8 @@
   font-family: 'Mali', cursive;
   font-size: .9rem;
   width: 130px;
+  outline: none;
+  overflow-wrap: break-word;
  }
  @media (min-width: 700px){
    #listContainer label{
@@ -31,9 +33,6 @@
      transform: scale(1.2);
    }
  }
- #listContainer label{
-    outline: none;
-  }
   #listContainer button{
     color: black;
     font-weight: bold;
