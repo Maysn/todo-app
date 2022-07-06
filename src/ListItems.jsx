@@ -24,7 +24,14 @@ const ListItem = ({ item, todoDone, todoDelete, todoEdit }) => {
   return (
     <div id="listContainer">
       {item.done ? (
-        <label style={{ textDecoration: "line-through", textDecorationThickness:'4px' }}>{value}</label>
+        <label
+          style={{
+            textDecoration: "line-through",
+            textDecorationThickness: "1.5px",
+          }}
+        >
+          {value}
+        </label>
       ) : (
         <label
           contentEditable
@@ -38,16 +45,22 @@ const ListItem = ({ item, todoDone, todoDelete, todoEdit }) => {
               todoEdit(value, item.id);
             }
           }}
-        >{value}</label>
+        >
+          {value}
+        </label>
       )}
       {item.theTodo && !item.done && (
         <button id="dnBtn" onClick={() => todoDone(item.id)}>
-          <FaCheck/>
+          <FaCheck />
         </button>
       )}
       {item.theTodo && item.done && (
-        <button style={{color:"yellow", boxShadow:"1px 1px 2px 1px black"}} id="dnBtn" onClick={() => todoDone(item.id)}>
-          <FaUndoAlt/>
+        <button
+          style={{ color: "yellow", boxShadow: "1px 1px 2px 1px black" }}
+          id="dnBtn"
+          onClick={() => todoDone(item.id)}
+        >
+          <FaUndoAlt />
         </button>
       )}
       {item.theTodo && (

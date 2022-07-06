@@ -1,7 +1,13 @@
 import React from "react";
 import "./App.css";
 import ListItem from "./ListItems";
-import { FaBomb, FaPlus, FaEnvelope } from "react-icons/fa";
+import {
+  FaBomb,
+  FaPlus,
+  FaEnvelope,
+  FaCheck,
+  FaExclamation,
+} from "react-icons/fa";
 
 class App extends React.Component {
   constructor(props) {
@@ -9,6 +15,8 @@ class App extends React.Component {
     this.state = {
       input: "",
       toDoList: [],
+      showDone: false,
+      showUndone: false,
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -17,6 +25,8 @@ class App extends React.Component {
     this.todoDelete = this.todoDelete.bind(this);
     this.todoEdit = this.todoEdit.bind(this);
     this.handleEnterPress = this.handleEnterPress.bind(this);
+    this.handleShowDone = this.handleShowDone.bind(this);
+    this.handleShowUndone = this.handleShowUndone.bind(this);
   }
   handleChange(e) {
     this.setState({
@@ -71,15 +81,28 @@ class App extends React.Component {
       this.handleSubmit();
     }
     if (event.key === "Escape") {
-      this.setState({input:''});
+      this.setState({ input: "" });
     }
+  }
+
+  handleShowDone() {
+    this.setState({ showDone: !this.state.showDone, showUndone: false });
+  }
+  handleShowUndone() {
+    this.setState({ showUndone: !this.state.showUndone, showDone: false });
   }
   render() {
     return (
       <div className={"parent"}>
         <div className={"bluePart"}>
           <div className={"title"}>
-            <h1 onClick={() => {document.getElementById('dangBtn').style.transform='scale(1)'}} >Todo App!</h1>
+            <h1
+              onClick={() => {
+                document.getElementById("dangBtn").style.transform = "scale(1)";
+              }}
+            >
+              Todo App!
+            </h1>
           </div>
           <div className={"dataEntry"}>
             <input
@@ -88,13 +111,24 @@ class App extends React.Component {
               onChange={this.handleChange}
               placeholder="Always plan ahea"
             />
-            <button id='adding' onClick={this.handleSubmit}><FaPlus/></button>
-            <button id='dangBtn' onClick={this.handleClear}><FaBomb/></button>
+            <button id="adding" onClick={this.handleSubmit}>
+              <FaPlus />
+            </button>
+            <button id="dangBtn" onClick={this.handleClear}>
+              <FaBomb />
+            </button>
+            <button onClick={this.handleShowDone}>
+              <FaCheck />
+            </button>
+            <button onClick={this.handleShowUndone}>
+              <FaExclamation />
+            </button>
           </div>
         </div>
         <div className={"grey"}>
-          { this.state.toDoList.length===0 && <div className='Tip'><span><FaEnvelope style={{fontSize:'50px', color:'#CACFD6'}} /></span></div>}
-          {this.state.toDoList.length > 0 && (
+          {this.state.toDoList.length > 0 &&
+          this.state.showDone === false &&
+          this.state.showUndone === false ? (
             <div className={"theList"}>
               {this.state.toDoList.map((item) => (
                 <ListItem
@@ -105,6 +139,40 @@ class App extends React.Component {
                   todoEdit={this.todoEdit}
                 />
               ))}
+            </div>
+          ) : this.state.toDoList.length > 0 && this.state.showDone ? (
+            <div className="theList">
+              {this.state.toDoList
+                .filter((item) => item.done)
+                .map((item) => (
+                  <ListItem
+                    key={item.id}
+                    item={item}
+                    todoDone={this.todoDone}
+                    todoDelete={this.todoDelete}
+                    todoEdit={this.todoEdit}
+                  />
+                ))}
+            </div>
+          ) : this.state.toDoList.length > 0 && this.state.showUndone ? (
+            <div className="theList">
+              {this.state.toDoList
+                .filter((item) => !item.done)
+                .map((item) => (
+                  <ListItem
+                    key={item.id}
+                    item={item}
+                    todoDone={this.todoDone}
+                    todoDelete={this.todoDelete}
+                    todoEdit={this.todoEdit}
+                  />
+                ))}{" "}
+            </div>
+          ) : (
+            <div className="Tip">
+              <span>
+                <FaEnvelope style={{ fontSize: "50px", color: "#CACFD6" }} />
+              </span>
             </div>
           )}
         </div>
